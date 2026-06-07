@@ -14,7 +14,10 @@ import {
   IconCalendar,
   IconClock,
   IconUser,
-  IconSparkles
+  IconSparkles,
+  IconShieldCheck,
+  IconHeartHandshake,
+  IconAward
 } from '@tabler/icons-vue'
 
 // === Design Read (Section 0.B) ===
@@ -27,18 +30,18 @@ import {
 
 // === SEO & Metadata ===
 useHead({
-  title: 'Seoul K-Aesthetic — Thẩm Mỹ Viện & Spa Làm Đẹp Chuẩn Hàn',
+  title: 'Seoul K-Aesthetic - Thẩm Mỹ Viện & Spa Làm Đẹp Chuẩn Hàn',
   meta: [
     { name: 'description', content: 'Trải nghiệm các liệu trình chăm sóc da, trị liệu và thẩm mỹ chuẩn y khoa Hàn Quốc tại Seoul K-Aesthetic Sydney. Chăm sóc da mặt chuyên sâu, phục hồi da K-Glow và xông hơi thải độc cao cấp.' },
     { name: 'keywords', content: 'spa han quoc, tham my han quoc, cham soc da seoul, spa sydney, cham soc da mat, yeosim aesthetic, spa tri lieu, lam dep sydney' },
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: 'Seoul K-Aesthetic — Thẩm Mỹ Viện & Spa Làm Đẹp Chuẩn Hàn' },
+    { property: 'og:title', content: 'Seoul K-Aesthetic - Thẩm Mỹ Viện & Spa Làm Đẹp Chuẩn Hàn' },
     { property: 'og:description', content: 'Khám phá thiên đường làm đẹp và chăm sóc da hoàn hảo. Liệu trình tinh tế chuẩn y khoa Seoul cùng đội ngũ kỹ thuật viên chuyên nghiệp.' }
   ],
   link: [
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap' }
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap' }
   ]
 })
 
@@ -628,10 +631,18 @@ const selectHeroSlide = (idx) => {
         <div 
           v-for="(pkg, idx) in packages" 
           :key="idx"
-          class="group flex flex-col bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt rounded-3xl overflow-hidden border border-spa-primary/5 shadow-sm hover:shadow-md hover:border-spa-primary/20 transition-all duration-300"
+          :class="[
+            idx === 1 
+              ? 'border-spa-primary/30 ring-2 ring-spa-primary/10 shadow-lg scale-102 bg-white dark:bg-spa-bg-dark-alt/50' 
+              : 'border-spa-primary/5 bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt shadow-sm hover:border-spa-primary/20'
+          ]"
+          class="group flex flex-col rounded-3xl overflow-hidden transition-all duration-300"
         >
           <!-- Package Image Frame -->
           <div class="w-full aspect-[16/10] overflow-hidden relative border-b border-spa-primary/5">
+            <span v-if="idx === 1" class="absolute top-6 left-6 z-10 px-3.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest text-white bg-spa-primary dark:bg-spa-primary-light dark:text-spa-bg-dark shadow-sm">
+              Khuyên dùng
+            </span>
             <img 
               :src="pkg.image" 
               :alt="pkg.title" 
@@ -798,59 +809,81 @@ const selectHeroSlide = (idx) => {
       </div>
     </section>
 
-    <!-- === Commitment / Core Values Section (Section 4.7) === -->
-    <section class="py-24 max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="font-serif text-4xl md:text-5xl font-light tracking-tight text-spa-text-dark dark:text-spa-text-light mb-4">
-          Cam Kết Về Chất Lượng Dịch Vụ
-        </h2>
-        <p class="text-sm tracking-wide text-spa-text-muted-dark dark:text-spa-text-muted-light uppercase">
-          Kiến tạo không gian thư giãn an toàn, sạch sẽ và chuyên nghiệp
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- === Commitment / Core Values Section (Section 4.7 Asymmetric Split Layout) === -->
+    <section class="py-24 max-w-7xl mx-auto px-6 border-t border-spa-primary/10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
-        <!-- Clean -->
-        <div class="bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt rounded-2xl p-8 border border-spa-primary/5 flex flex-col justify-between min-h-[200px]">
-          <div>
-            <div class="flex items-center gap-1 mb-4 text-amber-500">
-              <span class="text-xs font-bold tracking-widest mr-2 uppercase text-spa-primary dark:text-spa-primary-light bg-spa-primary/10 dark:bg-spa-primary-light/10 px-2 py-0.5 rounded">Vệ Sinh</span>
-              <span>★★★★★</span>
-            </div>
-            <h3 class="font-serif text-xl font-normal mb-3 text-spa-text-dark dark:text-spa-text-light">Sạch Sẽ Tuyệt Đối</h3>
-            <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed">
-              Chúng tôi duy trì tiêu chuẩn vệ sinh khắt khe nhất. Toàn bộ drap giường, dụng cụ và phòng ốc đều được khử trùng sạch sẽ trước mỗi liệu trình.
+        <!-- Left side: Editorial message & graphic card -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-semibold uppercase tracking-wider text-spa-primary dark:text-spa-primary-light">
+            Tiêu Chuẩn Của Chúng Tôi
+          </span>
+          <h2 class="font-serif text-4xl md:text-5xl font-light tracking-tight text-spa-text-dark dark:text-spa-text-light leading-[1.1]">
+            Cam Kết Về Chất Lượng Dịch Vụ
+          </h2>
+          <p class="text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed">
+            Seoul K-Aesthetic kiến tạo một không gian trị liệu an toàn, yên tĩnh và y khoa chuẩn Hàn Quốc. Mỗi chi tiết nhỏ trong hành trình của bạn đều được chúng tôi chăm chút tỉ mỉ để đem lại sự phục hồi và thư thái trọn vẹn nhất.
+          </p>
+          
+          <!-- Asymmetric visual accent -->
+          <div class="p-6 rounded-3xl bg-spa-primary/5 border border-spa-primary/10 dark:bg-spa-primary-light/5">
+            <p class="font-serif italic text-base text-spa-primary dark:text-spa-primary-light leading-relaxed">
+              "Sự hài lòng và vẻ đẹp tự nhiên của khách hàng chính là kim chỉ nam cho mọi hoạt động phục vụ tại Seoul K-Aesthetic."
             </p>
           </div>
         </div>
 
-        <!-- Service Mind -->
-        <div class="bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt rounded-2xl p-8 border border-spa-primary/5 flex flex-col justify-between min-h-[200px]">
-          <div>
-            <div class="flex items-center gap-1 mb-4 text-amber-500">
-              <span class="text-xs font-bold tracking-widest mr-2 uppercase text-spa-primary dark:text-spa-primary-light bg-spa-primary/10 dark:bg-spa-primary-light/10 px-2 py-0.5 rounded">Tận Tâm</span>
-              <span>★★★★★</span>
+        <!-- Right side: Vertical Stack of Core Values -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Clean -->
+          <div class="flex flex-col sm:flex-row items-start gap-4 p-6 rounded-2xl bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt border border-spa-primary/5 shadow-sm hover:border-spa-primary/20 transition-all duration-300">
+            <span class="p-3 rounded-xl bg-spa-primary/10 dark:bg-spa-primary-light/10 text-spa-primary dark:text-spa-primary-light shrink-0">
+              <IconShieldCheck class="w-6 h-6" />
+            </span>
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <h3 class="font-serif text-lg font-semibold text-spa-text-dark dark:text-spa-text-light">Sạch Sẽ Tuyệt Đối</h3>
+                <span class="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded">Chuẩn Y Khoa</span>
+              </div>
+              <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed">
+                Chúng tôi duy trì tiêu chuẩn vệ sinh khắt khe nhất. Toàn bộ drap giường, dụng cụ và phòng trị liệu đều được khử trùng sạch sẽ và thay mới hoàn toàn trước mỗi liệu trình.
+              </p>
             </div>
-            <h3 class="font-serif text-xl font-normal mb-3 text-spa-text-dark dark:text-spa-text-light">Sự Đón Tiếp Ấm Áp</h3>
-            <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed">
-              Tinh thần dịch vụ tận tụy được đặt lên hàng đầu. Đội ngũ nhân viên của chúng tôi luôn sẵn sàng lắng nghe và chăm sóc mọi nhu cầu của bạn.
-            </p>
           </div>
-        </div>
 
-        <!-- Professional -->
-        <div class="bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt rounded-2xl p-8 border border-spa-primary/5 flex flex-col justify-between min-h-[200px]">
-          <div>
-            <div class="flex items-center gap-1 mb-4 text-amber-500">
-              <span class="text-xs font-bold tracking-widest mr-2 uppercase text-spa-primary dark:text-spa-primary-light bg-spa-primary/10 dark:bg-spa-primary-light/10 px-2 py-0.5 rounded">Trị Liệu</span>
-              <span>★★★★★</span>
+          <!-- Service Mind -->
+          <div class="flex flex-col sm:flex-row items-start gap-4 p-6 rounded-2xl bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt border border-spa-primary/5 shadow-sm hover:border-spa-primary/20 transition-all duration-300">
+            <span class="p-3 rounded-xl bg-spa-primary/10 dark:bg-spa-primary-light/10 text-spa-primary dark:text-spa-primary-light shrink-0">
+              <IconHeartHandshake class="w-6 h-6" />
+            </span>
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <h3 class="font-serif text-lg font-semibold text-spa-text-dark dark:text-spa-text-light">Sự Đón Tiếp Tận Tâm</h3>
+                <span class="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded">Thấu Hiểu</span>
+              </div>
+              <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed">
+                Tinh thần dịch vụ tận tụy kiểu Hàn Quốc được đặt lên hàng đầu. Đội ngũ nhân viên luôn lắng nghe, tư vấn cá nhân hóa và chăm sóc chu đáo từng mong muốn nhỏ của bạn.
+              </p>
             </div>
-            <h3 class="font-serif text-xl font-normal mb-3 text-spa-text-dark dark:text-spa-text-light">Kỹ Thuật Viên Chuyên Nghiệp</h3>
-            <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed">
-              Các kỹ thuật viên được đào tạo chuyên sâu và liên tục để nắm vững các phương pháp phục hồi cơ thể tốt nhất.
-            </p>
           </div>
+
+          <!-- Professional -->
+          <div class="flex flex-col sm:flex-row items-start gap-4 p-6 rounded-2xl bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt border border-spa-primary/5 shadow-sm hover:border-spa-primary/20 transition-all duration-300">
+            <span class="p-3 rounded-xl bg-spa-primary/10 dark:bg-spa-primary-light/10 text-spa-primary dark:text-spa-primary-light shrink-0">
+              <IconAward class="w-6 h-6" />
+            </span>
+            <div>
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <h3 class="font-serif text-lg font-semibold text-spa-text-dark dark:text-spa-text-light">Kỹ Thuật Viên Chuyên Nghiệp</h3>
+                <span class="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded">Lành Nghề</span>
+              </div>
+              <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed">
+                Đội ngũ kỹ thuật viên giàu kinh nghiệm, được đào tạo bài bản chuẩn y học cổ truyền kết hợp thẩm mỹ hiện đại Hàn Quốc để đem lại hiệu quả trị liệu tối ưu.
+              </p>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -985,7 +1018,7 @@ const selectHeroSlide = (idx) => {
                     class="w-full px-5 py-4 rounded-full border border-spa-primary/20 bg-transparent text-sm focus:outline-none focus:border-spa-primary focus:ring-1 focus:ring-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
                   >
                     <option v-for="opt in currentDurationOptions" :key="opt.duration" :value="opt.duration" class="dark:bg-spa-bg-dark">
-                      {{ opt.duration }} — {{ opt.price }}
+                      {{ opt.duration }} - {{ opt.price }}
                     </option>
                   </select>
                 </div>

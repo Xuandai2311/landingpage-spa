@@ -4,8 +4,8 @@
 
 @theme {
   /* Premium Fonts */
-  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
 
   /* Custom Color Tokens for Korean Spa */
   --color-spa-bg-light: #fcfaf7;
