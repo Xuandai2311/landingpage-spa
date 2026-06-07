@@ -4,7 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  // Force server restart to clear cached PostCSS styles
+  app: {
+    baseURL: '/landingpage-spa/',
+  },
   
   // Register global CSS
   css: ['~/assets/css/main.css'],
