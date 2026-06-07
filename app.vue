@@ -113,7 +113,7 @@ const treatmentsI18n = computed(() => {
       ...opt,
       duration: t(`durations.${opt.durationKey}`)
     })),
-    benefits: [0, 1, 2, 3].map(i => t(`treatments.${tData.id}.benefits.${i}`))
+    benefits: [1, 2, 3, 4].map(i => t(`treatments.${tData.id}.benefit${i}`))
   }))
 })
 
@@ -404,8 +404,8 @@ const resolveImage = (img) => {
           <div class="clay-circle-badge w-16 h-16 mb-3">
             <component :is="[IconSparkles, IconShieldCheck, IconHeartHandshake, IconAward][i]" class="w-6 h-6 text-spa-primary" />
           </div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-spa-text-dark dark:text-spa-text-light mb-1">{{ t(`highlights.${h}.title`) }}</span>
-          <p class="text-[9px] text-spa-text-muted-dark dark:text-spa-text-muted-light font-light max-w-[15ch]">{{ t(`highlights.${h}.desc`) }}</p>
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-spa-text-dark dark:text-spa-text-light mb-1.5">{{ t(`highlights.${h}.title`) }}</span>
+          <p class="text-[11px] sm:text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light font-light max-w-[18ch] sm:max-w-none">{{ t(`highlights.${h}.desc`) }}</p>
         </div>
       </div>
     </section>
@@ -459,9 +459,9 @@ const resolveImage = (img) => {
     <section id="treatment" class="py-28 bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt w-full fine-border-b z-10 relative">
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-20 reveal">
-          <h2 class="font-serif text-4xl md:text-5xl font-light tracking-tight text-spa-text-dark dark:text-spa-text-light mb-6">{{ t('treatments.section.title') }}</h2>
+          <h2 class="font-serif text-4xl md:text-5xl font-light tracking-tight text-spa-text-dark dark:text-spa-text-light mb-6">{{ t('treatment.section.title') }}</h2>
           <div class="w-12 h-[0.5px] bg-spa-primary/30 mx-auto mb-6"></div>
-          <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light tracking-wide leading-relaxed">{{ t('treatments.section.desc') }}</p>
+          <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light tracking-wide leading-relaxed">{{ t('treatment.section.desc') }}</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
@@ -663,10 +663,10 @@ const resolveImage = (img) => {
             <!-- Ticket details -->
             <div class="max-w-md mx-auto p-6 border border-spa-primary/15 bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt rounded-[1.5rem] text-left mb-8">
               <div class="flex items-center justify-between border-b border-spa-primary/10 pb-4 mb-4">
-                <span class="text-[9px] font-bold tracking-widest text-spa-text-muted-dark dark:text-spa-text-muted-light uppercase">{{ t('booking.success.ref') }}</span>
-                <span class="text-xs font-bold font-mono text-spa-primary dark:text-spa-primary-light">{{ bookingReference }}</span>
+                <span class="text-[10px] sm:text-xs font-bold tracking-widest text-spa-text-muted-dark dark:text-spa-text-muted-light uppercase">{{ t('booking.success.ref') }}</span>
+                <span class="text-sm font-bold font-mono text-spa-primary dark:text-spa-primary-light">{{ bookingReference }}</span>
               </div>
-              <div class="space-y-2.5 text-xs font-light">
+              <div class="space-y-2.5 text-sm font-light">
                 <div class="flex justify-between">
                   <span class="text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.success.treatment') }}</span>
                   <span class="font-medium text-spa-text-dark dark:text-spa-text-light">{{ activeTreatmentName }}</span>
@@ -681,7 +681,7 @@ const resolveImage = (img) => {
                 </div>
                 <div class="flex justify-between pt-2.5 border-t border-spa-primary/5">
                   <span class="text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.success.cost') }}</span>
-                  <span class="font-bold text-spa-primary dark:text-spa-primary-light text-sm">${{ estimatedPrice }}</span>
+                  <span class="font-bold text-spa-primary dark:text-spa-primary-light text-base">${{ estimatedPrice }}</span>
                 </div>
               </div>
             </div>
@@ -745,30 +745,30 @@ const resolveImage = (img) => {
                 <div v-if="bookingStep === 1" :key="1" class="space-y-6">
                   
                   <div class="flex flex-col gap-2">
-                    <label for="booking-treatment" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">
+                    <label for="booking-treatment" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">
                       {{ t('booking.label.treatment') }}
                     </label>
                     <select 
                       id="booking-treatment" 
                       v-model="bookingForm.treatment"
-                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-spa-bg-light/40 dark:bg-transparent text-xs tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
+                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-spa-bg-light/40 dark:bg-transparent text-sm sm:text-base tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
                     >
-                      <option v-for="t in treatmentsI18n" :key="t.id" :value="t.id" class="dark:bg-spa-bg-dark text-xs">
+                      <option v-for="t in treatmentsI18n" :key="t.id" :value="t.id" class="dark:bg-spa-bg-dark text-sm">
                         {{ t.name }}
                       </option>
                     </select>
                   </div>
 
                   <div class="flex flex-col gap-2">
-                    <label for="booking-duration" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">
+                    <label for="booking-duration" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">
                       {{ t('booking.label.duration') }}
                     </label>
                     <select 
                       id="booking-duration" 
                       v-model="bookingForm.duration"
-                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-spa-bg-light/40 dark:bg-transparent text-xs tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
+                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-spa-bg-light/40 dark:bg-transparent text-sm sm:text-base tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
                     >
-                      <option v-for="opt in currentDurationOptions" :key="opt.durationKey" :value="opt.durationKey" class="dark:bg-spa-bg-dark text-xs">
+                      <option v-for="opt in currentDurationOptions" :key="opt.durationKey" :value="opt.durationKey" class="dark:bg-spa-bg-dark text-sm">
                         {{ t(`durations.${opt.durationKey}`) }} - {{ opt.price }}
                       </option>
                     </select>
@@ -778,7 +778,7 @@ const resolveImage = (img) => {
                   <div class="flex items-center justify-between p-5 border border-spa-primary/10 bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt rounded-[1.5rem]">
                     <div class="flex flex-col gap-1 pr-4">
                       <span class="text-xs font-semibold text-spa-text-dark dark:text-spa-text-light">{{ t('booking.addon.title') }}</span>
-                      <span class="text-[10px] text-spa-text-muted-dark dark:text-spa-text-muted-light font-light">{{ t('booking.addon.desc') }}</span>
+                      <span class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light font-light">{{ t('booking.addon.desc') }}</span>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
                       <input type="checkbox" v-model="bookingForm.coconutOil" class="sr-only peer">
@@ -788,8 +788,8 @@ const resolveImage = (img) => {
 
                   <div class="flex justify-between items-center border-t border-spa-primary/10 pt-6">
                     <div class="text-left">
-                      <span class="text-[9px] font-bold tracking-widest text-spa-text-muted-dark dark:text-spa-text-muted-light uppercase block">{{ t('booking.estimated') }}</span>
-                      <span class="text-lg font-bold text-spa-primary">${{ estimatedPrice }}</span>
+                      <span class="text-[10px] sm:text-xs font-bold tracking-widest text-spa-text-muted-dark dark:text-spa-text-muted-light uppercase block">{{ t('booking.estimated') }}</span>
+                      <span class="text-xl sm:text-2xl font-bold text-spa-primary">${{ estimatedPrice }}</span>
                     </div>
                     <button 
                       type="button" 
@@ -808,7 +808,7 @@ const resolveImage = (img) => {
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     
                     <div class="flex flex-col gap-2">
-                      <label for="booking-date" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
+                      <label for="booking-date" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
                         <IconCalendar class="w-4 h-4 text-spa-primary" /> {{ t('booking.label.date') }}
                       </label>
                       <input 
@@ -816,12 +816,12 @@ const resolveImage = (img) => {
                         id="booking-date" 
                         v-model="bookingForm.date"
                         required
-                        class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-xs tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
+                        class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-sm sm:text-base tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
                       />
                     </div>
 
                     <div class="flex flex-col gap-2">
-                      <label for="booking-time" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
+                      <label for="booking-time" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
                         <IconClock class="w-4 h-4 text-spa-primary" /> {{ t('booking.label.time') }}
                       </label>
                       <input 
@@ -829,7 +829,7 @@ const resolveImage = (img) => {
                         id="booking-time" 
                         v-model="bookingForm.time"
                         required
-                        class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-xs tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
+                        class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-sm sm:text-base tracking-wider focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light cursor-pointer"
                       />
                     </div>
 
@@ -859,7 +859,7 @@ const resolveImage = (img) => {
                 <div v-else-if="bookingStep === 3" :key="3" class="space-y-6">
                   
                   <div class="flex flex-col gap-2">
-                    <label for="booking-name" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
+                    <label for="booking-name" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
                       <IconUser class="w-4 h-4 text-spa-primary" /> {{ t('booking.label.name') }}
                     </label>
                     <input 
@@ -868,12 +868,12 @@ const resolveImage = (img) => {
                       v-model="bookingForm.name" 
                       :placeholder="t('booking.placeholder.name')" 
                       required
-                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-xs focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
+                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-sm sm:text-base focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
                     />
                   </div>
 
                   <div class="flex flex-col gap-2">
-                    <label for="booking-phone" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
+                    <label for="booking-phone" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light flex items-center gap-1.5">
                       <IconPhone class="w-4 h-4 text-spa-primary" /> {{ t('booking.label.phone') }}
                     </label>
                     <input 
@@ -882,12 +882,12 @@ const resolveImage = (img) => {
                       v-model="bookingForm.phone" 
                       :placeholder="t('booking.placeholder.phone')" 
                       required
-                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-xs focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
+                      class="w-full px-6 py-4 rounded-full border border-spa-primary/20 bg-transparent text-sm sm:text-base focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
                     />
                   </div>
 
                   <div class="flex flex-col gap-2">
-                    <label for="booking-notes" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">
+                    <label for="booking-notes" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">
                       {{ t('booking.label.notes') }}
                     </label>
                     <textarea 
@@ -895,14 +895,14 @@ const resolveImage = (img) => {
                       v-model="bookingForm.notes" 
                       :placeholder="t('booking.placeholder.notes')"
                       rows="3"
-                      class="w-full px-6 py-4 rounded-[1.5rem] border border-spa-primary/20 bg-transparent text-xs focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light resize-none"
+                      class="w-full px-6 py-4 rounded-[1.5rem] border border-spa-primary/20 bg-transparent text-sm sm:text-base focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light resize-none"
                     ></textarea>
                   </div>
 
                   <!-- Review Box -->
                   <div class="p-5 border border-spa-primary/10 bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt rounded-[1.5rem] space-y-2">
-                    <span class="text-[9px] font-bold tracking-widest text-spa-primary uppercase block mb-1">{{ t('booking.confirm.label') }}</span>
-                    <div class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs font-light text-spa-text-muted-dark dark:text-spa-text-muted-light">
+                    <span class="text-[10px] sm:text-xs font-bold tracking-widest text-spa-primary uppercase block mb-1">{{ t('booking.confirm.label') }}</span>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm font-light text-spa-text-muted-dark dark:text-spa-text-muted-light">
                       <span>{{ t('booking.confirm.treatment') }}</span>
                       <span class="text-right font-medium text-spa-text-dark dark:text-spa-text-light">{{ activeTreatmentName }}</span>
                       <span>{{ t('booking.confirm.duration') }}</span>
@@ -910,7 +910,7 @@ const resolveImage = (img) => {
                       <span>{{ t('booking.confirm.datetime') }}</span>
                       <span class="text-right font-medium text-spa-text-dark dark:text-spa-text-light">{{ t('booking.confirm.datetimeValue', { date: bookingForm.date, time: bookingForm.time }) }}</span>
                       <span>{{ t('booking.confirm.cost') }}</span>
-                      <span class="text-right font-bold text-spa-primary text-sm">${{ estimatedPrice }}</span>
+                      <span class="text-right font-bold text-spa-primary text-base">${{ estimatedPrice }}</span>
                     </div>
                   </div>
 
@@ -1036,35 +1036,35 @@ const resolveImage = (img) => {
           <form @submit.prevent class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="flex flex-col gap-2">
-                <label for="contact-name" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('contact.form.name') }}</label>
+                <label for="contact-name" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('contact.form.name') }}</label>
                 <input 
                   type="text" 
                   id="contact-name" 
                   required
                   :placeholder="t('contact.form.name.placeholder')"
-                  class="w-full px-5 py-4 rounded-full border border-spa-primary/20 bg-white dark:bg-spa-bg-dark text-xs focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
+                  class="w-full px-5 py-4 rounded-full border border-spa-primary/20 bg-white dark:bg-spa-bg-dark text-sm sm:text-base focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
                 />
               </div>
               <div class="flex flex-col gap-2">
-                <label for="contact-email" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('contact.form.email') }}</label>
+                <label for="contact-email" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('contact.form.email') }}</label>
                 <input 
                   type="email" 
                   id="contact-email" 
                   required
                   placeholder="example@gmail.com"
-                  class="w-full px-5 py-4 rounded-full border border-spa-primary/20 bg-white dark:bg-spa-bg-dark text-xs focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
+                  class="w-full px-5 py-4 rounded-full border border-spa-primary/20 bg-white dark:bg-spa-bg-dark text-sm sm:text-base focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light"
                 />
               </div>
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="contact-message" class="text-[9px] font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('contact.form.message') }}</label>
+              <label for="contact-message" class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('contact.form.message') }}</label>
               <textarea 
                 id="contact-message" 
                 required
                 :placeholder="t('contact.form.message.placeholder')"
                 rows="4"
-                class="w-full px-5 py-4 rounded-[1.5rem] border border-spa-primary/20 bg-white dark:bg-spa-bg-dark text-xs focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light resize-none"
+                class="w-full px-5 py-4 rounded-[1.5rem] border border-spa-primary/20 bg-white dark:bg-spa-bg-dark text-sm sm:text-base focus:outline-none focus:border-spa-primary transition-all dark:text-spa-text-light resize-none"
               ></textarea>
             </div>
 
