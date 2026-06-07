@@ -373,6 +373,14 @@ const prevHeroSlide = () => {
 const selectHeroSlide = (idx) => {
   currentHeroSlide.value = idx
 }
+
+const resolveImage = (img) => {
+  if (!img) return ''
+  if (img.startsWith('/') && !img.startsWith('//')) {
+    return `${useRuntimeConfig().app.baseURL}${img.slice(1)}`
+  }
+  return img
+}
 </script>
 
 <template>
@@ -534,7 +542,7 @@ const selectHeroSlide = (idx) => {
                   <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10"></div>
                   
                   <img 
-                    :src="slide.image" 
+                    :src="resolveImage(slide.image)" 
                     :alt="slide.title" 
                     class="w-full h-full object-cover transform scale-103 transition-transform duration-10000 ease-out"
                   />
@@ -653,7 +661,7 @@ const selectHeroSlide = (idx) => {
           <div>
             <div class="w-full aspect-[4/3] rounded-[2rem] overflow-hidden relative mb-6">
               <img 
-                :src="packages[0].image" 
+                :src="resolveImage(packages[0].image)" 
                 :alt="packages[0].title" 
                 class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
               />
@@ -688,7 +696,7 @@ const selectHeroSlide = (idx) => {
           <div>
             <div class="w-full aspect-[4/3] rounded-[2rem] overflow-hidden relative mb-6">
               <img 
-                :src="packages[1].image" 
+                :src="resolveImage(packages[1].image)" 
                 :alt="packages[1].title" 
                 class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
               />
@@ -720,7 +728,7 @@ const selectHeroSlide = (idx) => {
           <div>
             <div class="w-full aspect-[4/3] rounded-[2rem] overflow-hidden relative mb-6">
               <img 
-                :src="packages[2].image" 
+                :src="resolveImage(packages[2].image)" 
                 :alt="packages[2].title" 
                 class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
               />
@@ -880,7 +888,7 @@ const selectHeroSlide = (idx) => {
                 <!-- Right side: Illustrative Image (Bo góc tròn sâu) -->
                 <div class="md:col-span-5 w-full aspect-square md:aspect-auto md:min-h-full rounded-[2rem] overflow-hidden border border-spa-primary/10 relative">
                   <img 
-                    :src="activeTreatment.image" 
+                    :src="resolveImage(activeTreatment.image)" 
                     :alt="activeTreatment.name" 
                     class="w-full h-full object-cover transform hover:scale-103 transition-transform duration-1000 absolute inset-0"
                   />
