@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: process.env.NODE_ENV === 'production' ? '/landingpage-spa/' : '/',
   },
-  
+
   // Register global CSS
   css: ['~/assets/css/main.css'],
 
