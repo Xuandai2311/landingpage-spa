@@ -33,7 +33,7 @@ useHead({
   link: [
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap' }
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap' }
   ]
 })
 
@@ -484,9 +484,9 @@ const resolveImage = (img) => {
       <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0">
         <img 
-          :src="resolveImage('/images/spa_hot_spring.png')" 
-          alt="Seoul K-Aesthetic Hot Spring Spa" 
-          class="w-full h-full object-cover object-center filter brightness-[0.7] saturate-[0.85]"
+          :src="resolveImage('/images/korean_spa_clinic.png')" 
+          alt="Seoul K-Aesthetic Korean Spa Clinic" 
+          class="w-full h-full object-cover object-center filter brightness-[0.65] saturate-[0.9]"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60"></div>
       </div>
@@ -507,7 +507,7 @@ const resolveImage = (img) => {
       <!-- Content Wrapper -->
       <div class="max-w-4xl mx-auto text-center z-10 flex flex-col items-center">
         <!-- Small Subtitle -->
-        <span class="text-[10px] font-bold tracking-[0.3em] text-spa-primary-light uppercase mb-6 reveal">
+        <span class="text-[10px] sm:text-xs lg:text-sm font-bold tracking-[0.3em] text-spa-primary-light uppercase mb-6 reveal">
           Seoul K-Aesthetic Clinic & Spa
         </span>
 
@@ -526,7 +526,7 @@ const resolveImage = (img) => {
         </h1>
 
         <!-- Short Description -->
-        <p class="text-xs sm:text-sm text-white/80 max-w-[50ch] leading-relaxed mb-10 reveal reveal-delay-2 font-light">
+        <p class="text-xs sm:text-base lg:text-lg text-white/80 max-w-[60ch] leading-relaxed mb-10 reveal reveal-delay-2 font-light">
           Nghi thức khơi dậy vẻ đẹp thanh xuân và tái sinh năng lượng cơ thể. 
           Trải nghiệm liệu trình chăm sóc da mặt K-Glow & trị liệu tinh tế chuẩn y khoa Seoul.
         </p>

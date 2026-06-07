@@ -3,9 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Premium Fonts - Montserrat (body/sans) & Cormorant Garamond (headings/serif) */
-  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  /* Premium Fonts - Be Vietnam Pro (body/sans) & Lora (headings/serif) */
+  --font-sans: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
 
   /* Custom Color Tokens for Korean Spa - Sage and Pine (K-Beauty Clean) */
   --color-spa-bg-light: #F3F5F2;
@@ -37,6 +37,18 @@
 /* Base Adjustments */
 html {
   scroll-behavior: smooth;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 116.67%; /* Scales text-xs (0.75rem) to exactly 14px on desktops */
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 125%; /* Scales text-xs (0.75rem) to exactly 15px on extra large screens */
+  }
 }
 
 body {
