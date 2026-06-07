@@ -21,6 +21,8 @@ import {
   IconAward
 } from '@tabler/icons-vue'
 
+const { t, locale, locales, setLocale } = useI18n()
+
 // === SEO & Metadata ===
 useHead({
   title: () => t('seo.title'),
@@ -46,7 +48,6 @@ useHead({
 
 // === Theme Configuration (Dark / Light) ===
 const darkTheme = ref(false)
-const { t, locale, locales, setLocale } = useI18n()
 
 const toggleTheme = () => {
   darkTheme.value = !darkTheme.value
