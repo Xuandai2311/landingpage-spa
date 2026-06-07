@@ -296,7 +296,7 @@ const resolveImage = (img) => {
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div class="absolute right-0 top-full mt-1 w-32 bg-white dark:bg-spa-bg-dark border border-spa-primary/15 rounded-2xl shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 py-1.5 z-50">
+            <div class="absolute right-0 top-full w-32 bg-white dark:bg-spa-bg-dark border border-spa-primary/15 rounded-2xl shadow-lg opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 py-1.5 z-50 before:content-[''] before:absolute before:inset-x-0 before:h-4 before:-top-4 before:bg-transparent">
               <button 
                 v-for="loc in locales" 
                 :key="loc.code" 
