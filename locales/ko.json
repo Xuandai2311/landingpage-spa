@@ -1,0 +1,18 @@
+{
+  "nav.home": "홈",
+  "nav.packages": "패키지",
+  "nav.treatment": "서비스",
+  "nav.contact": "연락처",
+  "hero.title": "서울 K-에스테틱",
+  "hero.subtitle": "프리미엄 치료 공간",
+  "hero.cta": "예약하기",
+  "booking.title": "치료 예약",
+  "booking.step1": "서비스",
+  "booking.step2": "시간",
+  "booking.step3": "확인",
+  "booking.submit": "등록 제출",
+  "language.select": "언어",
+  "language.vi": "베트남어",
+  "language.en": "영어",
+  "language.ko": "한국어"
+}

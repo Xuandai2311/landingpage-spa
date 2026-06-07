@@ -1,0 +1,18 @@
+{
+  "nav.home": "Trang chủ",
+  "nav.packages": "Gói trị liệu",
+  "nav.treatment": "Menu dịch vụ",
+  "nav.contact": "Liên hệ",
+  "hero.title": "Seoul K-Aesthetic",
+  "hero.subtitle": "Không Gian Trị Liệu Sang Trọng",
+  "hero.cta": "Đặt Lịch Hẹn",
+  "booking.title": "Đặt Lịch Hẹn Trị Liệu",
+  "booking.step1": "Dịch vụ",
+  "booking.step2": "Thời gian",
+  "booking.step3": "Xác nhận",
+  "booking.submit": "Gửi Đăng Ký",
+  "language.select": "Ngôn ngữ",
+  "language.vi": "Tiếng Việt",
+  "language.en": "English",
+  "language.ko": "한국어"
+}

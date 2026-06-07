@@ -28,6 +28,12 @@ useHead({
     { name: 'keywords', content: 'spa han quoc, tham my han quoc, cham soc da seoul, spa sydney, cham soc da mat, yeosim aesthetic, spa tri lieu, lam dep sydney' },
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: 'Seoul K-Aesthetic - Thẩm Mỹ Viện & Spa Làm Đẹp Chuẩn Hàn' },
+    { property: 'og:image', content: '/images/korean_spa_clinic.png' },
+    { property: 'og:url', content: 'https://example.com' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Seoul K-Aesthetic - Thẩm Mỹ Viện & Spa Làm Đẹp Chuẩn Hàn' },
+    { name: 'twitter:description', content: 'Khám phá thiên đường làm đẹp và chăm sóc da hoàn hảo. Liệu trình tinh tế chuẩn y khoa Seoul cùng đội ngũ kỹ thuật viên chuyên nghiệp.' },
+    { name: 'twitter:image', content: '/images/korean_spa_clinic.png' },
     { property: 'og:description', content: 'Khám phá thiên đường làm đẹp và chăm sóc da hoàn hảo. Liệu trình tinh tế chuẩn y khoa Seoul cùng đội ngũ kỹ thuật viên chuyên nghiệp.' }
   ],
   link: [
@@ -404,10 +410,10 @@ const resolveImage = (img) => {
 
         <!-- Desktop Links (Editorial layout) -->
         <nav class="hidden md:flex items-center gap-12">
-          <a href="#hero" @click.prevent="scrollToSection('hero')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">Trang chủ</a>
-          <a href="#packages" @click.prevent="scrollToSection('packages')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">Gói trị liệu</a>
-          <a href="#treatment" @click.prevent="scrollToSection('treatment')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">Dịch vụ</a>
-          <a href="#contact" @click.prevent="scrollToSection('contact')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">Liên hệ</a>
+          <a href="#hero" @click.prevent="scrollToSection('hero')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">{{ $t('nav.home') }}</a>
+          <a href="#packages" @click.prevent="scrollToSection('packages')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">{{ $t('nav.packages') }}</a>
+          <a href="#treatment" @click.prevent="scrollToSection('treatment')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">{{ $t('nav.treatment') }}</a>
+          <a href="#contact" @click.prevent="scrollToSection('contact')" class="text-xs font-semibold tracking-[0.2em] uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary dark:hover:text-spa-primary-light transition-colors">{{ $t('nav.contact') }}</a>
         </nav>
 
         <!-- Right Utilities -->
