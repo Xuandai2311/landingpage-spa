@@ -479,110 +479,78 @@ const resolveImage = (img) => {
       </div>
     </Transition>
 
-    <!-- === Hero Section (Cosmetic Guide Style, Pill Buttons & Highlights) === -->
-    <section id="hero" class="relative min-h-[92dvh] flex flex-col justify-center py-16 max-w-7xl mx-auto px-6 w-full fine-border-b">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full mb-12">
-        
-        <!-- Left Column (Hero Content) -->
-        <div class="lg:col-span-7 flex flex-col items-start text-left z-10">
-          
-          <span class="text-[9px] font-bold tracking-[0.25em] text-spa-primary dark:text-spa-primary-light uppercase mb-6 reveal">
-            SEOUL K-AESTHETIC CLINIC & BEAUTY
-          </span>
-
-          <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-extralight tracking-tight leading-[1.08] text-spa-text-dark dark:text-spa-text-light mb-6 reveal reveal-delay-1">
-            “ĐÁNH THỨC <br/>
-            <span class="font-serif italic font-normal text-spa-primary">VẺ ĐẸP TỰ NHIÊN</span>”
-          </h1>
-
-          <p class="text-xs md:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light max-w-[48ch] leading-relaxed mb-8 reveal reveal-delay-2 font-light">
-            <span class="font-serif italic block mb-3 text-spa-primary dark:text-spa-primary-light font-normal text-sm md:text-base">Nghi thức khơi dậy vẻ đẹp thanh xuân.</span>
-            Chăm sóc da chuẩn clinic Hàn Quốc giúp làn da căng bóng.
-          </p>
-
-          <div class="flex flex-wrap items-center gap-5 mb-8 reveal reveal-delay-3">
-            <!-- Pill Gradient Button -->
-            <button 
-              @click="scrollToSection('booking')" 
-              class="clay-pill-button px-9 py-4 text-xs tracking-widest cursor-pointer"
-            >
-              Đặt Lịch Hẹn
-            </button>
-            <button 
-              @click="scrollToSection('treatment')" 
-              class="px-9 py-4 rounded-full border border-spa-primary/30 hover:border-spa-primary text-spa-text-dark dark:text-spa-text-light hover:bg-spa-primary/5 text-xs font-semibold uppercase tracking-widest transition-all duration-300 cursor-pointer"
-            >
-              Xem Menu
-            </button>
-          </div>
-
-        </div>
-
-        <!-- Right Column (Cosmetic visual frame - Curved frame) -->
-        <div class="lg:col-span-5 relative flex justify-center w-full reveal reveal-delay-2 z-10">
-          <div class="relative w-full aspect-[4/5] max-w-[380px] rounded-[3.5rem] overflow-hidden shadow-xl border border-spa-primary/10 group bg-spa-bg-dark-alt">
-            
-            <!-- Slides Container -->
-            <div class="absolute inset-0 w-full h-full">
-              <TransitionGroup 
-                enter-active-class="transition-opacity duration-1000 ease-in-out"
-                enter-from-class="opacity-0"
-                enter-to-class="opacity-100"
-                leave-active-class="transition-opacity duration-1000 ease-in-out"
-                leave-from-class="opacity-100"
-                leave-to-class="opacity-0"
-              >
-                <div 
-                  v-for="(slide, idx) in heroSlides" 
-                  v-show="currentHeroSlide === idx" 
-                  :key="idx" 
-                  class="absolute inset-0 w-full h-full"
-                >
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10"></div>
-                  
-                  <img 
-                    :src="resolveImage(slide.image)" 
-                    :alt="slide.title" 
-                    class="w-full h-full object-cover transform scale-103 transition-transform duration-10000 ease-out"
-                  />
-                  
-                  <!-- Info Overlay -->
-                  <div class="absolute bottom-0 inset-x-0 p-8 z-20 text-white flex flex-col gap-1.5">
-                    <span class="text-[8px] tracking-[0.2em] uppercase font-bold text-spa-primary-light">
-                      SEOUL K-AESTHETIC
-                    </span>
-                    <h3 class="font-serif text-xl font-light text-white/95">
-                      {{ slide.title }}
-                    </h3>
-                  </div>
-                </div>
-              </TransitionGroup>
-            </div>
-
-            <!-- Arrow Navigation -->
-            <button 
-              @click="prevHeroSlide" 
-              class="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-white/15 hover:bg-white/35 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
-              aria-label="Slide trước"
-            >
-              <IconChevronLeft class="w-4 h-4" />
-            </button>
-            <button 
-              @click="nextHeroSlide" 
-              class="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-white/15 hover:bg-white/35 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer"
-              aria-label="Slide tiếp theo"
-            >
-              <IconChevronRight class="w-4 h-4" />
-            </button>
-
-          </div>
-        </div>
-
+    <!-- === Hero Section (MIRA SPA Full-Bleed Curved Aesthetic Style) === -->
+    <section id="hero" class="relative min-h-[92vh] w-full flex flex-col items-center justify-center py-24 px-6 overflow-hidden bg-spa-bg-dark">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          :src="resolveImage('/images/spa_hot_spring.png')" 
+          alt="Seoul K-Aesthetic Hot Spring Spa" 
+          class="w-full h-full object-cover object-center filter brightness-[0.7] saturate-[0.85]"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60"></div>
       </div>
 
-      <!-- Circular Feature Badges (Cosmetic Guide Highlights block) -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full pt-8 border-t border-spa-primary/10 reveal reveal-delay-3 z-10">
+      <!-- Organic Wavy Line Illustrations (Floating SVGs) -->
+      <svg class="absolute top-[15%] left-[6%] w-[240px] h-[180px] opacity-35 text-white stroke-current fill-none pointer-events-none hidden md:block" viewBox="0 0 100 100">
+        <path d="M0,50 Q25,20 50,60 T100,30" stroke-width="0.5" />
+        <circle cx="100" cy="30" r="1" fill="white" />
+      </svg>
+      <svg class="absolute top-[25%] right-[6%] w-[260px] h-[200px] opacity-35 text-white stroke-current fill-none pointer-events-none hidden md:block" viewBox="0 0 100 100">
+        <path d="M0,40 Q30,80 60,30 T100,50" stroke-width="0.5" />
+        <circle cx="100" cy="50" r="1" fill="white" />
+      </svg>
+
+      <!-- Semi-transparent Floating Blob Shape -->
+      <div class="absolute top-[22%] left-[15%] w-14 h-11 bg-white/10 backdrop-blur-[2px] rounded-[30%_70%_70%_30%_/_40%_40%_60%_60%] pointer-events-none hidden md:block"></div>
+      
+      <!-- Content Wrapper -->
+      <div class="max-w-4xl mx-auto text-center z-10 flex flex-col items-center">
+        <!-- Small Subtitle -->
+        <span class="text-[10px] font-bold tracking-[0.3em] text-spa-primary-light uppercase mb-6 reveal">
+          Seoul K-Aesthetic Clinic & Spa
+        </span>
+
+        <!-- Main Heading in the "COUPLE [Badge] MASSAGE" centered elegant style -->
+        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extralight tracking-[0.18em] text-white uppercase flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8 reveal reveal-delay-1">
+          <span>Seoul</span>
+          <!-- Circular Logo Badge in the middle of heading -->
+          <span class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-spa-primary-light shadow-inner animate-pulse-slow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-8 h-8 sm:w-10 sm:h-10">
+              <path d="M12 3C12 3 7 8 7 13C7 16.5 9.5 19 12 19C14.5 19 17 16.5 17 13C17 8 12 3 12 3Z" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 13C12 13 14 11 15 11" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 10C12 10 10 9 9 9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="font-serif italic font-light text-spa-primary-light lowercase tracking-normal">k-aesthetic</span>
+        </h1>
+
+        <!-- Short Description -->
+        <p class="text-xs sm:text-sm text-white/80 max-w-[50ch] leading-relaxed mb-10 reveal reveal-delay-2 font-light">
+          Nghi thức khơi dậy vẻ đẹp thanh xuân và tái sinh năng lượng cơ thể. 
+          Trải nghiệm liệu trình chăm sóc da mặt K-Glow & trị liệu tinh tế chuẩn y khoa Seoul.
+        </p>
+
+        <!-- Book Now Button (Black Pill matching the Book Now button in the design) -->
+        <button 
+          @click="scrollToSection('booking')" 
+          class="reveal reveal-delay-3 px-10 py-4 bg-black border border-white/20 text-white rounded-full text-xs font-semibold tracking-[0.2em] uppercase hover:bg-spa-primary hover:border-spa-primary transition-all duration-300 shadow-lg cursor-pointer"
+        >
+          Đặt Lịch Hẹn
+        </button>
+      </div>
+
+      <!-- Wave Shape Mask at the bottom to blend with the white/beige page background -->
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10 pointer-events-none">
+        <svg viewBox="0 0 1440 100" class="relative block w-full h-[60px] md:h-[90px]" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,40 C320,100 480,20 800,70 C1120,120 1280,30 1440,60 L1440,100 L0,100 Z" class="fill-spa-bg-light dark:fill-spa-bg-dark transition-colors duration-500"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- === Quick Highlights Section (Placed below wave mask) === -->
+    <section class="py-16 max-w-7xl mx-auto px-6 w-full fine-border-b relative z-20">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full reveal">
         
         <div class="flex flex-col items-center text-center">
           <div class="clay-circle-badge w-16 h-16 mb-3">
@@ -617,7 +585,6 @@ const resolveImage = (img) => {
         </div>
 
       </div>
-
     </section>
 
     <!-- === Ticker Promotion Banner === -->
@@ -1430,6 +1397,25 @@ const resolveImage = (img) => {
           </form>
         </div>
 
+      </div>
+    </section>
+
+    <!-- === Google Maps Section === -->
+    <section class="py-12 max-w-7xl mx-auto px-6 w-full relative z-10 reveal">
+      <div class="w-full aspect-[21/9] sm:aspect-[21/7] rounded-[2.5rem] overflow-hidden border border-spa-primary/10 shadow-sm relative group bg-spa-bg-light-alt dark:bg-spa-bg-dark-alt">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.8208753232876!2d151.03058867623547!3d-33.92003882200845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12bec4502d99d1%3A0xcb13b1ab943d6c70!2s2%2F372%20Chapel%20Rd%2C%20Bankstown%20NSW%202200%2C%20Australia!5e0!3m2!1sen!2s!4v1717750000000!5m2!1sen!2s" 
+          class="w-full h-full border-0 grayscale dark:invert-[0.9] dark:hue-rotate-[180deg] transition-all duration-500 opacity-90 hover:opacity-100" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Seoul K-Aesthetic Location Map"
+        ></iframe>
+        <!-- Premium Floating Tag -->
+        <div class="absolute top-6 left-6 bg-white/95 dark:bg-spa-bg-dark/95 backdrop-blur-md border border-spa-primary/15 px-5 py-3 rounded-2xl shadow-md pointer-events-none transition-transform duration-300 group-hover:translate-y-[-2px]">
+          <span class="text-[8px] uppercase font-mono tracking-widest text-spa-primary block mb-1">Bản Đồ Chỉ Đường</span>
+          <span class="text-xs font-semibold text-spa-text-dark dark:text-spa-text-light">2/372 Chapel Road, Bankstown NSW</span>
+        </div>
       </div>
     </section>
 
