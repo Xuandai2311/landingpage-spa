@@ -698,35 +698,35 @@ const resolveImage = (img) => {
           <div v-else>
             
             <!-- Step Indicators -->
-            <div class="flex items-center justify-between mb-12 max-w-md mx-auto">
+            <div class="flex items-center justify-between mb-12 max-w-lg mx-auto">
               <div class="flex items-center gap-2.5">
                 <span 
                   :class="[bookingStep >= 1 ? 'bg-spa-primary text-white' : 'bg-spa-primary/10 text-spa-text-muted-dark']"
-                  class="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold"
+                  class="w-8 h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold"
                 >
                   1
                 </span>
-                <span class="text-[9px] font-bold tracking-wider uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.step1') }}</span>
+                <span class="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.step1') }}</span>
               </div>
               <div class="h-[0.5px] flex-grow bg-spa-primary/20 mx-4"></div>
               <div class="flex items-center gap-2.5">
                 <span 
                   :class="[bookingStep >= 2 ? 'bg-spa-primary text-white' : 'bg-spa-primary/10 text-spa-text-muted-dark']"
-                  class="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold"
+                  class="w-8 h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold"
                 >
                   2
                 </span>
-                <span class="text-[9px] font-bold tracking-wider uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.step2') }}</span>
+                <span class="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.step2') }}</span>
               </div>
               <div class="h-[0.5px] flex-grow bg-spa-primary/20 mx-4"></div>
               <div class="flex items-center gap-2.5">
                 <span 
                   :class="[bookingStep >= 3 ? 'bg-spa-primary text-white' : 'bg-spa-primary/10 text-spa-text-muted-dark']"
-                  class="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold"
+                  class="w-8 h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold"
                 >
                   3
                 </span>
-                <span class="text-[9px] font-bold tracking-wider uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.step3') }}</span>
+                <span class="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light">{{ t('booking.step3') }}</span>
               </div>
             </div>
 
@@ -1113,7 +1113,7 @@ const resolveImage = (img) => {
             <span class="font-serif text-2xl font-light tracking-widest text-spa-text-dark dark:text-spa-text-light uppercase">
               Seoul <span class="font-semibold text-spa-primary">K-Aesthetic</span>
             </span>
-            <p class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed max-w-[28ch] font-light">
+            <p class="text-xs sm:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed max-w-[28ch] font-light">
               {{ t('footer.brand.desc') }}
             </p>
             
@@ -1141,23 +1141,23 @@ const resolveImage = (img) => {
 
           <!-- Column 2: Navigation Links -->
           <div class="flex flex-col gap-5">
-            <span class="text-[10px] font-bold tracking-widest uppercase text-spa-text-dark dark:text-spa-text-light">
+            <span class="text-xs sm:text-sm font-bold tracking-widest uppercase text-spa-text-dark dark:text-spa-text-light">
               {{ t('footer.nav.title') }}
             </span>
             <nav class="flex flex-col gap-3.5">
-              <a href="#hero" @click.prevent="scrollToSection('hero')" class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.home') }}</a>
-              <a href="#packages" @click.prevent="scrollToSection('packages')" class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.packages') }}</a>
-              <a href="#treatment" @click.prevent="scrollToSection('treatment')" class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.treatment') }}</a>
-              <a href="#contact" @click.prevent="scrollToSection('contact')" class="text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.contact') }}</a>
+              <a href="#hero" @click.prevent="scrollToSection('hero')" class="text-xs sm:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.home') }}</a>
+              <a href="#packages" @click.prevent="scrollToSection('packages')" class="text-xs sm:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.packages') }}</a>
+              <a href="#treatment" @click.prevent="scrollToSection('treatment')" class="text-xs sm:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.treatment') }}</a>
+              <a href="#contact" @click.prevent="scrollToSection('contact')" class="text-xs sm:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light hover:text-spa-primary transition-colors">{{ t('nav.contact') }}</a>
             </nav>
           </div>
 
           <!-- Column 3: Contact Info -->
           <div class="flex flex-col gap-5">
-            <span class="text-[10px] font-bold tracking-widest uppercase text-spa-text-dark dark:text-spa-text-light">
+            <span class="text-xs sm:text-sm font-bold tracking-widest uppercase text-spa-text-dark dark:text-spa-text-light">
               {{ t('footer.contact.title') }}
             </span>
-            <div class="flex flex-col gap-3.5 text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light font-light">
+            <div class="flex flex-col gap-3.5 text-xs sm:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light font-light">
               <a href="tel:+61416145949" class="hover:text-spa-primary transition-colors flex items-center gap-2.5">
                 <IconPhone class="w-4 h-4 shrink-0" />
                 +61 416 145 949
@@ -1171,10 +1171,10 @@ const resolveImage = (img) => {
 
           <!-- Column 4: Address & Hours -->
           <div class="flex flex-col gap-5">
-            <span class="text-[10px] font-bold tracking-widest uppercase text-spa-text-dark dark:text-spa-text-light">
+            <span class="text-xs sm:text-sm font-bold tracking-widest uppercase text-spa-text-dark dark:text-spa-text-light">
               {{ t('footer.address.title') }}
             </span>
-            <div class="flex flex-col gap-3.5 text-xs text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed font-light">
+            <div class="flex flex-col gap-3.5 text-xs sm:text-sm text-spa-text-muted-dark dark:text-spa-text-muted-light leading-relaxed font-light">
               <span class="flex items-start gap-2.5">
                 <IconMapPin class="w-4 h-4 shrink-0 mt-0.5" />
                 <span>2/372 Chapel Road, Bankstown NSW, Australia</span>
@@ -1189,10 +1189,10 @@ const resolveImage = (img) => {
 
         <!-- Copyright -->
         <div class="border-t border-spa-primary/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <span class="text-[9px] tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light font-medium">
+          <span class="text-[10px] sm:text-xs tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light font-medium">
             {{ t('footer.copyright') }}
           </span>
-          <span class="text-[9px] tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light font-medium">
+          <span class="text-[10px] sm:text-xs tracking-widest uppercase text-spa-text-muted-dark dark:text-spa-text-muted-light font-medium">
             K-Aesthetic Beauty & Wellness
           </span>
         </div>
